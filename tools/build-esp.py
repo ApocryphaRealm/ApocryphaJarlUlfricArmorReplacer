@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-r"""Author "Jarl Ulfric Armor Replacer.esp" by lifting Ulfric's armour out of NordwarUA's
+r"""Author "Jarl Ulfric Armor Replacer.esl" by lifting Ulfric's armour out of NordwarUA's
 Guards Armor Replacer SSE (Nexus 22671) and nothing else.
 
 WHY A GENERATOR RATHER THAN A COPIED PLUGIN
@@ -126,13 +126,20 @@ def group(tag, records_bytes):
             struct.pack("<I", 0) + struct.pack("<I", 0) + struct.pack("<I", 0) + records_bytes)
 
 
+# Skyrim allows 254 full plugins and 4,096 light ones. The owner, 2026-09-16: "we need to make sure
+# to ship any of our mods that have a plugin as an esl not an esp", and "which goes for past mods as
+# well". Every new record here sits between 0x000800 and 0x000FFF, which is the light range, so the
+# flag is all it takes.
+ESL_FLAG = 0x00000200
+
+
 def tes4_header(record_count, next_object_id):
     body = (sub(b"HEDR", struct.pack("<fiI", 1.7, record_count, next_object_id)) +
             sub(b"CNAM", AUTHOR.encode("cp1252") + b"\x00") +
             sub(b"SNAM", DESCRIPTION.encode("cp1252") + b"\x00") +
             sub(b"MAST", b"Skyrim.esm\x00") +
             sub(b"DATA", struct.pack("<Q", 0)))
-    return record(b"TES4", 0, body)
+    return record(b"TES4", 0, body, flags=ESL_FLAG)
 
 
 def main(source, out_path):
@@ -186,5 +193,5 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         raise SystemExit(__doc__)
     here = os.path.dirname(os.path.abspath(__file__))
-    default = os.path.normpath(os.path.join(here, "..", "dist", "Jarl Ulfric Armor Replacer.esp"))
+    default = os.path.normpath(os.path.join(here, "..", "dist", "Jarl Ulfric Armor Replacer.esl"))
     main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else default)
