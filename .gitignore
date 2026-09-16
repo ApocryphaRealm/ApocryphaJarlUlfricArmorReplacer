@@ -1,0 +1,6 @@
+# NordwarUA's files are NOT redistributed through this repository. The plugin and the assets are
+# both generated from his own archive by the scripts in tools/, so a checkout plus his download
+# reproduces the package byte for byte (verified 2026-09-16: 40 assets, 0 differences).
+dist/Meshes/
+dist/Textures/
+dist/*.esp

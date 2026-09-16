@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Mod metadata, read by Mod Organizer and Vortex when the package is installed.
+
+  This mod has no installer options - there is nothing to choose - so there is deliberately no
+  ModuleConfig.xml beside this file. info.xml alone is just metadata, not a FOMOD installer.
+
+  It is also where the version lives, and the ONLY place: version-gate.ps1 stamps <Version> here and
+  refuses to issue a number for a repo it cannot stamp. Do not write the version anywhere else.
+-->
+<fomod>
+  <Name>Jarl Ulfric Armor Replacer</Name>
+  <Author>NordwarUA (assets and records), ApocryphaRealm (extraction)</Author>
+  <Version>1.0.0</Version>
+  <Website>https://www.nexusmods.com/skyrimspecialedition/mods/22671</Website>
+  <Description>
+    Ulfric Stormcloak's armour from NordwarUA's Guards Armor Replacer, on its own - his cuirass,
+    gauntlets, boots and helmet, and the two outfits that put them on him. Nothing else from that mod
+    is included. Outfit records only; Ulfric's NPC records are left untouched, so this does not
+    conflict with face, AI or appearance mods.
+  </Description>
+  <Groups>
+    <element>Models and Textures</element>
+    <element>Armour</element>
+  </Groups>
+</fomod>
