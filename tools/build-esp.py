@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-r"""Author "Jarl Ulfric Armor Replacer.esl" by lifting Ulfric's armour out of NordwarUA's
+r"""Author "Jarl Ulfric Armor Replacer.esp" by lifting Ulfric's armour out of NordwarUA's
 Guards Armor Replacer SSE (Nexus 22671) and nothing else.
 
 WHY A GENERATOR RATHER THAN A COPIED PLUGIN
@@ -193,5 +193,5 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         raise SystemExit(__doc__)
     here = os.path.dirname(os.path.abspath(__file__))
-    default = os.path.normpath(os.path.join(here, "..", "dist", "Jarl Ulfric Armor Replacer.esl"))
+    default = os.path.normpath(os.path.join(here, "..", "dist", "Jarl Ulfric Armor Replacer.esp"))
     main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else default)
