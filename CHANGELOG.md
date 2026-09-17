@@ -12,6 +12,8 @@
   differ, and the conversion tool proved that by comparing the two files. Remove the old `.esl` when
   updating; a mod manager does this for you.
 
+- **Saves:** Updating from the old .esl: let your mod manager remove the old file. A save made with the .esl loaded will not carry this mod's records over to the renamed plugin - the game ties them to the file name - so treat this like installing the mod fresh: existing saves lose what came from the old plugin, and a new game or a save that never had it is clean.
+
 No mesh, texture or record changes.
 
 ## 1.0.0 - 2026-09-16 - untested
