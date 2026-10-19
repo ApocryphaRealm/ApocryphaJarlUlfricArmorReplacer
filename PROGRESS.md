@@ -3,10 +3,22 @@
 ## What it is
 
 Ulfric Stormcloak's armour from NordwarUA's Guards Armor Replacer (Nexus 22671), extracted into a
-standalone mod. Two outfit overrides, eleven new armour records, 25 meshes and 15 textures. No code.
+standalone mod. Two outfit overrides, eleven new armour records, 25 meshes and 15 textures, and (from 1.0.2) one quest with a small Papyrus script that re-dresses Ulfric on a save that already dressed him.
 
 1.0.0 is recorded working: seen in game on 2026-09-16 in Njordlinger (SE 1.5.97) with Guards Armor
 Replacer absent, confirmed by the owner from his own screenshot - "its correct".
+
+## 1.0.2 - existing saves (2026-10-18)
+
+FootConnoisseur (Nexus bug report, 2026-10-14) saw Ulfric stay vanilla on 1.0.1 with NordwarUA's Sons of Skyrim
+and no new game. Reproduced in game: a save that already ran Ulfric's set-up (new game + `setstage MQ101 1000`)
+holds his vanilla clothes in his inventory and never reads the outfit records again, so the two overrides do
+nothing for it; a brand-new game gets the armour. Sons of Skyrim and every other plugin in the 1828-plugin test
+list were ruled out by parsing them (none touches Ulfric's NPC or outfit records except USSEP, which keeps the
+vanilla values). Fix: quest JUAR_RedressUlfric + `Scripts/JUARRedressUlfric.pex` (source in `tools/` and
+`Source/Scripts/`), added to the generated plugin by `tools/add-redress-quest.py` after `build-esp.py`. Tested on
+the old save and on a fresh game. The rule 31 note below is about the 1.0.0/1.0.1 shape; the script logs
+`[JUAR]` lines through Debug.Trace.
 
 ## Rule 31 (DevBench observability) - acknowledged and justified, not silently skipped
 

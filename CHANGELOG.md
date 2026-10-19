@@ -1,5 +1,13 @@
 # Jarl Ulfric Armor Replacer - changelog
 
+## 1.0.2 - 2026-10-18 - untested
+
+### Fixed
+- Ulfric stayed in his vanilla clothes on a save that had already dressed him (reported on 1.0.1 by FootConnoisseur, who had not started a new game). The game reads an outfit record only when an actor is first set up, so a save that already holds Ulfric's old clothes in his inventory never read the two outfit overrides. The plugin now carries one start-game-enabled quest, JUAR_RedressUlfric, with a Papyrus script: on the first load of such a save it waits until Ulfric is loaded and, if he still wears the vanilla clothes, swaps his outfit away and back so the game reads the overridden record. It does nothing once he wears the armour, nothing if another mod has dressed him, and stops after six tries. A new game is unchanged.
+
+### Changed
+- The plugin gains one quest record and a script (Scripts/JUARRedressUlfric.pex, source in Source/Scripts); it is still an ESPFE with the one master Skyrim.esm. No mesh, texture or outfit record changed. Compiled with the Creation Kit's Papyrus compiler against the vanilla sources; no script extender needed.
+
 ## 1.0.1 - 2026-09-16 - untested
 
 ### Changed
